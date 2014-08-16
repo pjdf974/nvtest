@@ -13,14 +13,15 @@ http
 		var parsed = url.parse(request.url, true);
 		if("/"===request.url)
 			parsed.pathname = "index.html";
-		fs.createReadStream(path.join(process.cwd(), parsed.pathname))
+		fs.createReadStream(path.join(process.cwd(), "public", parsed.pathname))
 			.on("open", function(){
 				response.writeHead(200, mime.contentType(parsed.pathname));
 				this.pipe(response);
 			})
 			.on("error", function(error){
+				console.log(mime.lookup("txt"));
 				response.writeHead(404, mime.lookup("txt"));
-				response.end("\n\nERROR =\n"+error+"\nA é î ù ô");
+				response.end("\n\nERROR =\n"+error);
 			});
 	})
 	.listen(PORT, HOST, function(){
