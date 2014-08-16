@@ -1,0 +1,13 @@
+{
+	"name":"nvtest",
+	"main":"server.js",
+	"version":"0.0.1",
+	"scripts":{
+		"start":"node server.js"
+	},
+	"repository":{
+		"type":"git",
+		"url":"https://github.com/pjdf974/nvtest.git"
+	},
+	"author":"pjdf974"
+}
